@@ -2,7 +2,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "wfm\\": "vendor/vfm",
+      "wfm\\": "vendor/wfm",
       "app\\": "app"
     }
   }
