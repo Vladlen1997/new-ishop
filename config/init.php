@@ -11,3 +11,5 @@ define("LAYOUT", 'ishop'); #default site template
 define("PATH", 'http://new-ishop.loc'); #the path to the main page of the site
 define("ADMIN", 'http://new-ishop.loc/admin'); #the path to the admin panel
 define("NO_IMAGE", 'uploads/no_image.jpg'); #path to secondary images
+
+require_once ROOT . '/vendor/autoload.php';
