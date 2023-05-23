@@ -20,5 +20,9 @@ class Registry
         return self::$properties[$name] ?? null;
     }
 
+    public function getProperty(): array
+    {
+        return self::$properties;
+    }
 }
 
