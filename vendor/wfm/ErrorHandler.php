@@ -13,6 +13,12 @@ class ErrorHandler
         } else {
             error_reporting(0);
         }
+        set_error_handler([$this, 'exceptionHandler']); #method exceptionHandler
+    }
+
+    public function exceptionHandler(\Throwable $e) #inteface throwable with object $e
+    {
+
     }
 }
 
