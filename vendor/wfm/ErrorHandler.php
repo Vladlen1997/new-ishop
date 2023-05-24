@@ -18,7 +18,7 @@ class ErrorHandler
 
     public function exceptionHandler(\Throwable $e) #inteface throwable with object $e
     {
-        #$this
+        $this->logError($e->getMessage(), $e->getFile(), $e->getLine());#catch the error and log it
     }
 
     protected function logError($message = '', $file = '', $line = '') #error message, file message, line message
