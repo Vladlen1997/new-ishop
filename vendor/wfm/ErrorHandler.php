@@ -18,9 +18,15 @@ class ErrorHandler
 
     public function exceptionHandler(\Throwable $e) #inteface throwable with object $e
     {
+        #$this
     }
 
-    protected function logErrors($message = '')
+    protected function logError($message = '', $file = '', $line = '') #error message, file message, line message
+    {
+
+    }
+
+    protected function displayError($errno, $errstr, $errfile, $errline, $responce = 500) #error numb, error string, error file, error line
     {
 
     }
