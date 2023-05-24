@@ -12,4 +12,11 @@ class App
     {
         self::$app = Registry::getInstance();
     }
+
+
+    protected function getParams() #params for f-work
+    {
+
+    } #connect params fo f-work
+
 }
