@@ -24,7 +24,9 @@ class ErrorHandler
 
     protected function logError($message = '', $file = '', $line = '') #error message, file message, line message
     {
-
+        file_put_contents(LOGS . '/errors.log',
+            "[" . date('Y-m-d H:i:s') . "] Текст ошибки: {$message} | Файл: {$file} | Строка: {$line}\n=================\n",
+            FILE_APPEND); #the exception will be recorded in the log
     }
 
     protected function displayError($errno, $errstr, $errfile, $errline, $responce = 500) #error numb, error string, error file, error line
