@@ -14,9 +14,14 @@ class App
     }
 
 
-    protected function getParams() #params for f-work
+    public function getParams() #params for f-work
     {
-
+        $params = require_once CONFIG . '/params.php';
+        if (!empty($params)) {
+            foreach ($params as $k => $v) {
+                self::$app->setProperties($k, $v);
+            }
+        }
     } #connect params fo f-work
 
 }
