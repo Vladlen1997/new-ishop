@@ -14,6 +14,9 @@ class ErrorHandler
             error_reporting(0);
         }
         set_exception_handler([$this, 'exceptionHandler']); #method exceptionHandler
+        set_error_handler([$this, 'ErrorHandler']); #error handler
+        ob_start(); #turn on buferization
+        register_shutdown_function([$this, 'fatalErrorHandler']); #fatal error
     }
 
     public function exceptionHandler(\Throwable $e) #inteface throwable with object $e
