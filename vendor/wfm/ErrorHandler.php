@@ -33,6 +33,9 @@ class ErrorHandler
         if(isset($error) && $error['type'] & (E_ERROR | E_PARSE | E_COMPILE_ERROR | E_CORE_ERROR)) { # получили последнюю ошибку и если она не пуста и тип ошибки который можем обработать
             $this->logError($error['message'], $error['file'], $error['line']); #логируем ошибку
             ob_end_clean(); #выключаем буфер
+            $this->displayError($error['type'], $error['message'], $error['file'], $error['line']); #show error
+        } else {
+            ob_end_flush(); #turn off bufer
         }
     }
 
