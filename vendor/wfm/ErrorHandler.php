@@ -19,6 +19,13 @@ class ErrorHandler
         register_shutdown_function([$this, 'fatalErrorHandler']); #fatal error
     }
 
+
+    public function errorHandler($errno, $errstr, $errfile, $errline)
+    {
+        #log, displayError
+    }
+
+
     public function exceptionHandler(\Throwable $e) #inteface throwable with object $e
     {
         $this->logError($e->getMessage(), $e->getFile(), $e->getLine());#catch the error and log it
