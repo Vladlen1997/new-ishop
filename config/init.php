@@ -7,6 +7,7 @@ define("APP", ROOT . '/app'); #the path to the application
 define("CORE", ROOT . '/vendor/wfm'); #wfm core
 define("CACHE", ROOT . '/temp/cache');
 define("LOGS", ROOT . '/temp/logs');
+define("HELPERS", ROOT . '/vendor/wfm/helpers');
 define("CONFIG", ROOT . '/config');
 define("LAYOUT", 'ishop'); #default site template
 define("PATH", 'http://new-ishop.loc'); #the path to the main page of the site
