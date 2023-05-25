@@ -10,18 +10,21 @@ class App
 
     public function __construct()
     {
+        new ErrorHandler();
         self::$app = Registry::getInstance();
         $this->getParams();
     }
 
-    public function getParams() #params for f-work
+    protected function getParams()
     {
         $params = require_once CONFIG . '/params.php';
-        if (!empty($params)) {
-            foreach ($params as $k => $v) {
-                self::$app->setProperties($k, $v); #name and values
+        if(!empty($params)) {
+            foreach($params as $k => $v) {
+                self::$app->setProperties($k, $v);
             }
         }
-    } #connect params fo f-work
+    }
+
+
 
 }
