@@ -39,6 +39,13 @@ class ErrorHandler
             require_once WWW . '/errors/404.php';
             die;
         }
+
+        if (DEBUG) {
+            require_once WWW . '/errors/development.php';
+        } else {
+            require_once WWW . '/errors/production.php';
+        }
+        die;
     }
 }
 
