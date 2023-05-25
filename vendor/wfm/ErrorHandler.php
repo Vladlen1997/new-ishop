@@ -31,10 +31,14 @@ class ErrorHandler
 
     protected function displayError($errno, $errstr, $errfile, $errline, $responce = 500) #error numb, error string, error file, error line
     {
-        if($responce == 0) {
+        if ($responce == 0) {
             $response = 404; #in title
         }
         http_response_code($responce);
+        if ($responce == 404 && !DEBUG) {
+            require_once WWW . '/errors/404.php';
+            die;
+        }
     }
 }
 
