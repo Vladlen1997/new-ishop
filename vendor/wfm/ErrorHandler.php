@@ -22,7 +22,8 @@ class ErrorHandler
 
     public function errorHandler($errno, $errstr, $errfile, $errline)
     {
-        #log, displayError
+        $this->logError($errstr, $errfile, $errline);
+        $this->displayError($errno, $errstr, $errfile, $errline);
     }
 
 
