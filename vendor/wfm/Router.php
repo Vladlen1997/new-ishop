@@ -20,7 +20,12 @@ class Router
 
     public static function getRoute(): array
     {
-        return self::$route;
+        return self::$route; #конкретный маршрут, с которым было найдено соответствие
+    }
+
+    public static function dispatch($url)
+    {
+        var_dump($url);
     }
 
 }
