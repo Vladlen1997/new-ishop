@@ -30,6 +30,10 @@ class ErrorHandler
     public function fatalErrorHandler()
     {
         $error = error_get_last(); //get last error
+        if(isset($error) && $error['type'] & (E_ERROR | E_PARSE | E_COMPILE_ERROR | E_CORE_ERROR)) { # получили последнюю ошибку и если она не пуста и тип ошибки который можем обработать
+            $this->logError($error['message'], $error['file'], $error['line']); #логируем ошибку
+            ob_end_clean(); #выключаем буфер
+        }
     }
 
 
