@@ -1,5 +1,6 @@
 <?php
 
+//https://habr.com/ru/post/161483/
 
 namespace wfm;
 
@@ -24,6 +25,11 @@ class ErrorHandler
     {
         $this->logError($errstr, $errfile, $errline);
         $this->displayError($errno, $errstr, $errfile, $errline);
+    }
+
+    public function fatalErrorHandler()
+    {
+        $error = error_get_last(); //get last error
     }
 
 
