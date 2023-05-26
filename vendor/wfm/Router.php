@@ -51,7 +51,8 @@ class Router
                 } else {
                     $route['admin_prefix'] = '\\'; # добавил слэш в конце для пространства имён, при работе с админкой понадобится
                 }
-
+                debug($route);
+                $route['controller'] = self::upperCamelCase($route['controller']);
                 debug($route);
                 return true;
             }
