@@ -71,4 +71,9 @@ class Router
         // $name = str_replace(' ', '', $name); #удалил пробел в $name
     }
 
+    protected static function lowerCamelCAse($name): string
+    {
+        return lcfirst(self::upperCamelCase($name));
+    }
+
 }
