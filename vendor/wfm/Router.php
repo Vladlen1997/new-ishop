@@ -25,7 +25,7 @@ class Router
 
     public static function dispatch($url)
     {
-        if(self::matchRoot($url)) {
+        if (self::matchRoot($url)) {
             echo 'OK';
         } else {
             echo 'NO';
@@ -34,6 +34,12 @@ class Router
 
     public static function matchRoot($url): bool #вызову func preg_match и сравню поступивший запрос с шаблоном регулярного выражения маршрутизатора
     {
+        foreach (self::$routes as $pattern => $route) #паттерн - шаблон регулярного выражения, рут - массив
+        {
+            if (preg_match("#{$pattern}#i", $url, $matches)) {        #i A-Z a-z
+                return true;
+            }
+        }
         return false;
     }
 
