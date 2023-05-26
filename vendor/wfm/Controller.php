@@ -25,6 +25,12 @@ abstract class Controller
     public function getView()
     {
         $this->views = $this->views ?: $this->route['action'];  #если $this->views не пустая строка, тогда запишем её, иначе название вида возьму по умолчанию
+    } # объект вида и метод рендер?
+
+
+    public function set($data) #данные необходимо куда-то складывать
+    {
+        $this->data = $data; #в массив мы запишем все те переменные, которые сюда пришли
     }
 
 }
