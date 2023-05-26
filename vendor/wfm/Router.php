@@ -26,7 +26,7 @@ class Router
     public static function dispatch($url)
     {
         if (self::matchRoot($url)) { #query
-            $controller = 'app/controllers\\' . self::$route['admin_prefix'];
+            $controller = 'app/controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';//адрес теперь получается app controllers, далее \ admin*, и наименование контроллера. Либо без админки если ''
         } else {
             throw new \Exception("Страница не найдена", 404); #если false, то не найдено совпадение в таблице маршрутов и выбрасываю исключение
         }
