@@ -4,7 +4,7 @@ abstract class Controller
 {
 
     public array $data = []; #массив с данными
-    public array $meta = ['title' => '', 'description' => '', 'keywords' => '']; //из контроллера в шаблон передавать метаданные страницы - заголовки,  метоописание и ключевики страницы
+    public array $meta = []; //из контроллера в шаблон передавать метаданные страницы - заголовки,  метоописание и ключевики страницы
     public false|string $layout = ''; #шаблон, в init определён (может быть как false, так и стринг)
     public string $views = ''; # только строка
     public object $model; #также создаю объект моделискуф
@@ -31,6 +31,13 @@ abstract class Controller
     public function set($data) #данные необходимо куда-то складывать
     {
         $this->data = $data; #в массив мы запишем все те переменные, которые сюда пришли
+    }
+
+    public function setMeta($title = '', $description = '', $keywords = '')
+    {
+        $this->meta = [
+            'title' => $title, 'description' => $description, 'keywords' => $keywords
+        ];
     }
 
 }
