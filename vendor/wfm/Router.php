@@ -28,7 +28,7 @@ class Router
         if (self::matchRoot($url)) { #query
             echo 'OK';
         } else {
-            echo 'NO';
+            throw new \Exception("Страница не найдена", 404); #если false, то не найдено совпадение в таблице маршрутов и выбрасываю исключение
         }
     }
 
