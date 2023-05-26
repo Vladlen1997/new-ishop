@@ -45,6 +45,13 @@ class Router
                 if (empty($route['action'])) {
                     $route['action'] = 'index';
                 } #если action пуст, укажу значение по умолчанию
+
+                if (!isset($route['admin_prefix'])) { #проверяю, существует лиn такой ключ admin_prefix
+                    $route['admin_prefix'] = '';
+                } else {
+                    $route['admin_prefix'] = '\\'; # добавил слэш в конце для пространства имён, при работе с админкой понадобится
+                }
+
                 debug($route);
                 return true;
             }
