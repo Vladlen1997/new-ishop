@@ -29,7 +29,7 @@ class Router
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';//адрес теперь получается app controllers, далее admin*, и наименование контроллера. Либо без админки если ''
             if (class_exists($controller)) {
                 $controllerObject = new $controller(self::$route); #передал в конструктор текущий маршрут
-                # создаю action
+                $action = self::lowerCamelCAse(self::$route['action'] . 'Action');# пристыковал постфикс. (Если не указать постфикс, то данный метод будет вызываться как служебный и вызваться не сможет)
             } else {
                 throw new \Exception("Контроллер {$controller} не найден", 404);
             }
