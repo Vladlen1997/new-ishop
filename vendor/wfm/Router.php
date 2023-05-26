@@ -23,8 +23,21 @@ class Router
         return self::$route; #конкретный маршрут, с которым было найдено соответствие
     }
 
+    #removeQueryString - служебный метод, обрезка лишнего запроса
+
+    protected static function removeQueryString($url)
+    {
+        if($url) {
+            $params = explode('&', $url, 2); # explode разбивает строку на элементы массива. Не имеет значения, что идёт после амперсанда. Делим строку на 2 элемента.
+        }
+        return '';
+    }
+
+
+
     public static function dispatch($url)
     {
+        $url = self::removeQueryString($url); #пропускаю url через removeQuery (убираю строку запроса из самого запроса)
         if (self::matchRoot($url)) { #query
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';//адрес теперь получается app controllers, далее admin*, и наименование контроллера. Либо без админки если ''
             if (class_exists($controller)) {
