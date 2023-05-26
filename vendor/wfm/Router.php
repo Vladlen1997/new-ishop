@@ -59,4 +59,10 @@ class Router
         return false;
     }
 
+    protected static function upperCamelCase($name): string
+    {
+        //new-product => new product
+        $name = str_replace('-', ' ', $name); #заменяю дефис на пустую строку в $name
+    }
+
 }
