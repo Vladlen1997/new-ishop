@@ -25,10 +25,13 @@ class Router
 
     #removeQueryString - служебный метод, обрезка лишнего запроса
 
-    protected static function removeQueryString($url)
+    protected static function removeQueryString($url) # str_contains - проверит, есть ли в заданной строке подстрока
     {
         if($url) {
             $params = explode('&', $url, 2); # explode разбивает строку на элементы массива. Не имеет значения, что идёт после амперсанда. Делим строку на 2 элемента.
+            if(false === str_contains($params[0], '=')) {  #str_contains проверяет заданную строку на подстроку
+                return rtrim($params[0], '/');
+            }
         }
         return '';
     }
