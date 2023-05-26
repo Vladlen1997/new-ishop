@@ -25,7 +25,7 @@ class Router
 
     public static function dispatch($url)
     {
-        if (self::matchRoot($url)) {
+        if (self::matchRoot($url)) { #query
             echo 'OK';
         } else {
             echo 'NO';
@@ -36,7 +36,16 @@ class Router
     {
         foreach (self::$routes as $pattern => $route) #паттерн - шаблон регулярного выражения, рут - массив
         {
-            if (preg_match("#{$pattern}#i", $url, $matches)) {        #i A-Z a-z
+            if (preg_match("#{$pattern}#i", $url, $matches)) {
+                foreach ($matches as $k => $v) {
+                    if (is_string($k)) {  #только строка
+                        $route[$k] = $v;
+                    }
+                }
+                if (empty($route['action'])) {
+                    $route['action'] = 'index';
+                } #если action пуст, укажу значение по умолчанию
+                debug($route);
                 return true;
             }
         }
