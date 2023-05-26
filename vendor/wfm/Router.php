@@ -26,7 +26,7 @@ class Router
     public static function dispatch($url)
     {
         if (self::matchRoot($url)) { #query
-            echo 'OK';
+            $controller = 'app/controllers\\' . self::$route['admin_prefix'];
         } else {
             throw new \Exception("Страница не найдена", 404); #если false, то не найдено совпадение в таблице маршрутов и выбрасываю исключение
         }
@@ -49,11 +49,10 @@ class Router
                 if (!isset($route['admin_prefix'])) { #проверяю, существует лиn такой ключ admin_prefix
                     $route['admin_prefix'] = '';
                 } else {
-                    $route['admin_prefix'] = '\\'; # добавил слэш в конце для пространства имён, при работе с админкой понадобится
+                    $route['admin_prefix'] .= '\\'; # добавил слэш в конце для пространства имён, при работе с админкой понадобится
                 }
-                debug($route);
                 $route['controller'] = self::upperCamelCase($route['controller']);
-                debug($route);
+                self::$route = $route; #записал весь результат в качестве текущего маршрута
                 return true;
             }
         }
