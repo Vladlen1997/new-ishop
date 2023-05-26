@@ -63,7 +63,10 @@ class Router
     {
         //new-product => new product
         $name = str_replace('-', ' ', $name); #заменяю дефис на пустую строку в $name
+        //new product => New Product
         $name = ucwords($name); #ucwords функция преобразует первый символ каждого слова в верхний регистр
+        //New Product => NewProduct
+        $name = str_replace(' ', '', $name); #удалил пробел в $name
     }
 
 }
