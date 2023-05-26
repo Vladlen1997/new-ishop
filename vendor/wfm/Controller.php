@@ -20,5 +20,11 @@ abstract class Controller
             $this->model = new $model();  # в итоге получаю модель, если таковая создана
         }
     }
+    # создаю getView | view можно переопределять через контроллер
+
+    public function getView()
+    {
+        $this->views = $this->views ?: $this->route['action'];  #если $this->views не пустая строка, тогда запишем её, иначе название вида возьму по умолчанию
+    }
 
 }
