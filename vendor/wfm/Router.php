@@ -30,6 +30,11 @@ class Router
             if (class_exists($controller)) {
                 $controllerObject = new $controller(self::$route); #передал в конструктор текущий маршрут
                 $action = self::lowerCamelCAse(self::$route['action'] . 'Action');# пристыковал постфикс. (Если не указать постфикс, то данный метод будет вызываться как служебный и вызваться не сможет)
+                if (method_exists($controllerObject, $action)) { #indexAction
+                    $controllerObject->$action();
+                } else {
+                    throw new \Exception("Метод {$controller}::{$action} не найден", 404);
+                }
             } else {
                 throw new \Exception("Контроллер {$controller} не найден", 404);
             }
