@@ -62,7 +62,7 @@ class Router
 
     protected static function upperCamelCase($name): string
     {
-        return str_replace('-', ' ', ucwords(str_replace(' ', '', $name)));
+        return str_replace(' ', '', ucwords(str_replace('-', ' ', $name)));
         //new-product => new product
         // $name = str_replace('-', ' ', $name); #заменяю дефис на пустую строку в $name
         //new product => New Product
