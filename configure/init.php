@@ -8,3 +8,4 @@ define("CORE", ROOT . '/vendor/appCore');
 define("HELPERS", ROOT . '/vendor/appCore/helpers');
 define("CACHE", ROOT . '/tmp/cache');
 define("LOGS", ROOT . '/tmp/logs');
+define("CONFIG", ROOT . '/configure');
