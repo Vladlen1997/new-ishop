@@ -11,3 +11,5 @@ define("LOGS", ROOT . '/tmp/logs');
 define("CONFIG", ROOT . '/configure');
 define("LAYOUT", 'ishop');
 define("PATH", 'http://new-ishop.loc');
+define("ADMIN", 'http://new-ishop.loc/admin');
+define("NO_IMAGE", 'uploads/no_image.jpg');
