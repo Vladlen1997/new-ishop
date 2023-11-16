@@ -13,3 +13,6 @@ define("LAYOUT", 'ishop');
 define("PATH", 'http://new-ishop.loc');
 define("ADMIN", 'http://new-ishop.loc/admin');
 define("NO_IMAGE", 'uploads/no_image.jpg');
+
+
+require_once ROOT . '/vendor/autoload.php';
