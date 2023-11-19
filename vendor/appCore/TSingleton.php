@@ -10,5 +10,10 @@ trait TSingleton
 
     }
 
+    public static function getInstance(): static
+    {
+        return static::$instance ?? static::$instance = new static();
+    }
+
 
 }
